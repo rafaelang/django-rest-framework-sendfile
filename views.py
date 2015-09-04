@@ -26,7 +26,7 @@ class UpdateUploadMixin(object):
 
                 instance.__dict__[upload].save(upload_data.name, upload_data)
 
-                return Response(instance.__dict__[upload], status=HTTP_201_CREATED)
+                return Response(instance.__dict__[upload].url, status=HTTP_201_CREATED)
         return Response(status=HTTP_400_BAD_REQUEST)
 
     @detail_route(methods=['POST'], permission_classes=[IsAuthenticated])
